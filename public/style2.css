@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-regular);
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}
+
+:root {
+  /* Color Palette */
+  --color-primary: #e2edcf;
+  --color-secondary: #6c757d;
+  --color-accent: #17a2b8;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-light: #f8f9fa;
+  --color-dark: #343a40;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-family-regular: "Libre Baskerville", serif;
+  --font-family-bold: "Libre Baskerville", serif;
+  --font-family-italic: "Libre Baskerville", serif;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 30px;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Border */
+  --border-radius: 8px;
+  --border-color: #dee2e6;
+  --border-width: 1px;
+
+  /* Shadows */
+  --box-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* HEADER */
+nav {
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-base);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 20px;
+  position: static;
+  z-index: 1;
+  outline: 1px solid black;
+  img {
+    width: 20%;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 20px;
+  a{
+    text-decoration: none;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+/* HOME */
+.home-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    outline: 1px solid green;
+   h1{
+    font-size: 80px;
+   }
+}
+
+.home-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-header{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 1px solid green;
+    p{
+        width: 90%;
+    }
+}
+
+/* SOBRE */
+.sobre-container{
+}
+
+.sobre-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-secondary);
+    color: wheat;
+    width: 80%;
+}
