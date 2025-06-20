@@ -1,160 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Founder</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      padding: 40px;
+    }
+
+    /* Center the content */
+    #founder {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Founder card styling */
+    .founder-card {
+      display: flex;
+      flex-direction: row; /* Horizontal layout */
+      align-items: center;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      overflow: hidden; /* To keep the image's corners rounded */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 900px; /* You can adjust this as needed */
+      width: 100%;
+      position: relative; /* Needed for absolute positioning of buttons */
+    }
+
+    /* Image container */
+    .founder-img-container {
+      width: 40%; /* You can adjust the image size */
+      padding: 20px;
+    }
+
+    /* Image styling */
+    .founder-img-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    /* Text container */
+    .founder-text {
+      width: 60%; /* The text will take the remaining space */
+      padding: 20px;
+    }
+
+    /* Title styling */
+    .founder-text h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    /* Text styling */
+    .founder-text p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Circular Buttons Styling */
+    .button-circle {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #4CAF50; /* Green background */
+      color: white;
+      border: none;
+      border-radius: 50%; /* Make them circular */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 24px; /* Arrow size */
+      transition: background-color 0.3s ease;
+    }
+
+    .button-circle:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+
+    .previous {
+      right: 80px; /* Position the previous button to the left of the next one */
+    }
+
+    /* Responsive design for small screens */
+    @media (max-width: 768px) {
+      .founder-card {
+        flex-direction: column; /* Stack image and text vertically on small screens */
+      }
+
+      .founder-img-container {
+        width: 100%; /* Make the image take up full width */
+        padding: 10px;
+      }
+
+      .founder-text {
+        width: 100%; /* Make the text take up full width */
+        padding: 10px;
+      }
+
+      /* Adjust button position on small screens */
+      .button-circle {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .previous {
+        right: 60px; /* Adjust distance between buttons */
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="" id="Contato">
-            <div class="contato-container">
-                <div class="contato-info">
-                    <div class="contato-info-card">
-                        <h3>Contato</h3>
-                        <ul>
-                            <li><a href="">Ligar</a></li>
-                            <li><a href="">Instagram</a></li>
-                            <li><a href="">E-mail</a></li>
-                        </ul>
-                    </div>
 
-                    <div class="contato-info-card">
-                        <h3>Whatsapp</h3>
-                        <ul>
-                            <li><a href="">Boa Viagem</a></li>
-                            <li><a href="">Tamarineira (Ferreira Costa)</a></li>
-                            <li><a href="">Plaza Shopping</a></li>
-                            <li><a href="">Riomar Shopping</a></li>
-                        </ul>
-                    </div>
+  <section id="founder">
+    <div class="founder-card">
+      <div class="founder-img-container">
+        <img src="founder-image.jpg" alt="Founder Image" />
+      </div>
+      <div class="founder-text">
+        <h2>Meet the Founder</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet accumsan erat. Curabitur euismod turpis eu leo tincidunt, ac luctus purus fermentum. Nullam eget orci euismod, sodales odio a, scelerisque nulla. Etiam non erat ut justo convallis laoreet a ac lectus.</p>
+      </div>
 
-                    <div class="contato-info-card">
-                        <h3>Nossos Locais</h3>
-                        <ul>
-                            <li>
-                                <img src="whatsapp-svgrepo-com.svg" alt="">
-                                <a href="">Boa Viagem</a></li>
-                            <li><a href="">Tamarineira (Ferreira Costa)</a></li>
-                            <li><a href="">Plaza Shopping</a></li>
-                            <li><a href="">Riomar Shopping</a></li>
-                        </ul>
-                    </div>
-                </div>
+      <!-- Circular Buttons -->
+      <button class="button-circle previous" onclick="window.location.href='previous-page.html'">&#8592;</button>
+      <button class="button-circle next" onclick="window.location.href='next-page.html'">&#8594;</button>
+    </div>
+  </section>
 
-            </div>
-
-        </section>
-    
 </body>
 </html>
-
-<style>
-
-  .bootbtn{
-    background-color: red;
-  }
-    /* --- Base Styles for the Section --- */
-#Contato {
-  background-color: #f8f8f8; /* Light background for contrast */
-  padding: 60px 20px; /* Ample padding top/bottom and sides */
-  font-family: 'Arial', sans-serif; /* A clean, readable font */
-  color: #333; /* Darker text for readability */
-}
-
-.contato-container {
-  max-width: 1200px; /* Limit width for better readability on large screens */
-  margin: 0 auto; /* Center the container */
-  padding: 0 15px; /* Inner padding */
-}
-
-/* --- Layout for Contact Info Cards --- */
-.contato-info {
-  display: flex; /* Use flexbox for horizontal layout */
-  flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
-  gap: 30px; /* Space between cards */
-  justify-content: center; /* Center cards when there's extra space */
-  align-items: flex-start; /* Align cards to the top */
-}
-
-.contato-info-card {
-  background-color: #fff; /* White background for cards */
-  border-radius: 10px; /* Slightly rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
-  padding: 30px; /* Internal padding */
-  flex: 1 1 300px; /* Allow cards to grow, shrink, but prefer 300px width */
-  text-align: center; /* Center text within cards */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-.contato-info-card:hover {
-  transform: translateY(-5px); /* Lift card on hover */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
-}
-
-/* --- Heading Styles --- */
-.contato-info-card h3 {
-  color: #007bff; /* A nice blue for headings */
-  font-size: 1.6em; /* Larger heading size */
-  margin-bottom: 20px; /* Space below heading */
-  position: relative; /* For the underline effect */
-  padding-bottom: 10px; /* Space for underline */
-}
-
-.contato-info-card h3::after {
-  content: '';
-  position: absolute;
-  left: 50%; /* Center the underline */
-  transform: translateX(-50%); /* Adjust for perfect centering */
-  bottom: 0;
-  width: 50px; /* Underline width */
-  height: 3px; /* Underline thickness */
-  background-color: #007bff; /* Underline color */
-  border-radius: 2px; /* Slightly rounded underline */
-}
-
-/* --- List Styles --- */
-.contato-info-card ul {
-  list-style: none; /* Remove default bullet points */
-  padding: 0;
-  margin: 0;
-}
-
-.contato-info-card ul li {
-  margin-bottom: 12px; /* Space between list items */
-}
-
-.contato-info-card ul li:last-child {
-  margin-bottom: 0; /* No margin on the last item */
-}
-
-/* --- Link Styles --- */
-.contato-info-card ul li a {
-  text-decoration: none; /* Remove underline from links */
-  color: #555; /* Default link color */
-  font-size: 1.1em; /* Slightly larger font for links */
-  transition: color 0.3s ease; /* Smooth color change on hover */
-}
-
-.contato-info-card ul li a:hover {
-  color: #007bff; /* Change link color on hover */
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-  .contato-info-card {
-    flex: 1 1 100%; /* Stack cards on smaller screens */
-    max-width: 400px; /* Limit individual card width if stacked */
-  }
-
-  .contato-info {
-    flex-direction: column; /* Ensure vertical stacking */
-    align-items: center; /* Center items when stacked */
-  }
-
-  #Contato {
-    padding: 40px 15px; /* Reduce padding on smaller screens */
-  }
-}
-</style>

@@ -51,6 +51,10 @@
   --transition-slow: 0.5s ease-in-out;
 }
 
+section{
+  margin-bottom: 80px;
+}
+
 /* HEADER */
 nav {
   font-size: var(--font-size-small);
@@ -63,7 +67,8 @@ nav {
   width: 100%;
   background-color: var(--color-primary);
   padding: 20px;
-  position: static;
+  position:sticky;
+  top:0;
   z-index: 1;
   outline: 1px solid black;
   img {
@@ -89,13 +94,12 @@ nav {
 
 /* HOME */
 .home-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
     text-align: center;
     width: 100%;
-    outline: 1px solid green;
    h1{
     font-size: 80px;
    }
@@ -106,29 +110,132 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
 }
 
 .home-header{
-    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: 1px solid green;
+    margin: 20px;
+    width: 100%;
     p{
         width: 90%;
     }
+    button{
+      margin-top: 20px;
+    }
+}
+
+.home-body{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.home-img-container{
+  border-radius: 15px;
+  position: relative; /* Ensure the container is ready for the image to fill it */
+  width: 100%; /* Ensure the container takes the full width of its parent */
+  height: 250px; /* Ensure the container takes the full height you want */
+}
+
+.home-img-container img {
+  width: 100%; /* Make the image fill the container's width */
+  height: 100%; /* Make the image fill the container's height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  border-radius: 15px; /* Optional: Add rounded corners to the image to match the container */
 }
 
 /* SOBRE */
 .sobre-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 3px solid black;
 }
 
-.sobre-info{
+.sobre-img-container{
+  img{
+    width: 50%;
+  }
+}
+
+.sobre-card{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: var(--color-secondary);
     color: wheat;
-    width: 80%;
+    width: 90%;
+    border: 3px solid red;
+}
+
+.sobre-header{
+  width: 100%;
+  border: 3px solid green;
+}
+
+.sobre-body{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  border: 3px solid blue;
+}
+
+.sobre-body-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* PRODUTOS */
+.produtos-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.produtos-header{
+  margin: 30px;
+}
+.produtos-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+.produtos-body{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.produtos-img-container{
+      height: 280px;
+    outline: 2px solid black;
+    border-radius: 15px;
+    img{
+      border-radius: 15px;
+      object-fit: cover;
+      position: relative;
+    }
 }
