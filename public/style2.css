@@ -10,6 +10,13 @@ body{
   background-color: var(--color-primary);
 }
 
+html, body {
+    height: 100vh; /* Or min-height: 100vh; for full viewport height */
+    /* Ensure no conflicting overflow properties */
+    overflow-x: hidden; /* Only hide horizontal overflow if needed */
+    overflow-y: auto;   /* Allow vertical scrolling */
+}
+
 :root {
   /* Color Palette */
   --color-primary: #e2edcf;
@@ -56,46 +63,175 @@ body{
 }
 
 section{
-  margin-bottom: 80px;
+  margin-top: 80px;
 }
 
 /* HEADER */
-nav {
-    font-size: var(--font-size-small);
-    font-family: var(--font-family-base);
+header {
+    width: 100%;
+    background-color: var(--color-primary); /* Ensures header background is set */
+    box-shadow: var(--box-shadow-sm); /* Subtle shadow for the header section */
+    /* No position property here unless the header itself needs special positioning */
+}
+
+.main-nav {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100%; /* This means 100% of its parent, which is <header> */
     width: 100%;
-    background-color: var(--color-primary);
-    padding: 20px;
-    position: sticky; /* This is the key property */
-    top: 0;          /* This sets where it sticks */
-    z-index: 1;
-    outline: 1px solid black; /* This border will also stick */
-    img {
-        width: 20%;
+    min-height: 80px; /* Ensures a good height for the navbar */
+    padding: var(--spacing-md) var(--spacing-lg); /* Top/bottom, Left/Right padding */
+    background-color: var(--color-primary); /* Background for the fixed nav */
+
+    /* CHANGED TO FIXED POSITION */
+    position: fixed; /* <--- THIS IS THE CHANGE */
+    top: 0;          /* Sticks to the very top of the viewport */
+    left: 0;         /* Ensures it starts from the far left */
+    width: 100%;     /* Ensures it spans the full width of the viewport */
+    z-index: 1000;   /* Ensures the nav is always on top of other content */
+
+     box-shadow: none; /* Explicitly set to none initially */
+    transition: all var(--transition-normal); /* Smooth transition for any changes */
+
+    /* Logo Styling within Nav */
+    .nav-logo-link {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
     }
+
+    .main-nav.scrolled {
+    box-shadow: var(--box-shadow-md); /* Apply the desired shadow */
+}
+
+    .nav-logo {
+        width: clamp(100px, 15vw, 150px);
+        height: auto;
+        display: block;
+        background-color: transparent;
+    }
+
+    /* Hamburger Toggle Button */
+    .hamburger-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: var(--spacing-sm);
+        z-index: 1001;
+
+        .hamburger-icon {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            margin: 6px 0;
+            transition: all var(--transition-normal);
+        }
+
+        /* Animation when hamburger is 'active' (menu open) */
+        &.active .hamburger-icon:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        &.active .hamburger-icon:nth-child(2) {
+            opacity: 0;
+        }
+        &.active .hamburger-icon:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        @media (max-width: 600px) {
+            display: block;
+            /* Position relative to the *fixed* nav, so absolute positioning still works */
+            position: absolute;
+            top: 20px;
+            right: var(--spacing-lg);
+        }
+    }
+
+    /* Navigation List (Desktop & Mobile) */
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: var(--spacing-xl);
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+
+        li {
+            background-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-secondary);
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            transition: color var(--transition-fast), background-color var(--transition-fast);
+            background-color: transparent;
+
+            &:hover {
+                color: var(--color-accent);
+                background-color: transparent;
+            }
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 600px) {
+            /* Position relative to the *fixed* .main-nav */
+            position: absolute;
+            top: 100%; /* Position right below the navbar */
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            background-color: var(--color-primary);
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--border-color);
+            box-shadow: var(--box-shadow-sm);
+
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform var(--transition-normal), opacity var(--transition-normal);
+
+            &.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            li {
+                width: 100%;
+                text-align: center;
+                padding: var(--spacing-sm) 0;
+                background-color: transparent;
+                transition: background-color var(--transition-fast);
+
+                &:hover {
+                    background-color: var(--color-light);
+                }
+
+                a {
+                    display: block;
+                    width: 100%;
+                    padding: var(--spacing-xs) 0;
+                    color: var(--color-dark);
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    /* Adjust nav for mobile layout */
     @media (max-width: 600px) {
         flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-md);
+        /* REMOVED position: relative; here as main-nav is now fixed globally */
+        height: auto; /* Allow height to adapt to content */
     }
 }
-
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 20px;
-  a{
-    text-decoration: none;
-  }
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
-}
-
 /* HOME */
 .home-container{
   display: flex;
