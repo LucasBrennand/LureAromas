@@ -6,6 +6,10 @@
   background-color: var(--color-primary);
 }
 
+body{
+  background-color: var(--color-primary);
+}
+
 :root {
   /* Color Palette */
   --color-primary: #e2edcf;
@@ -57,26 +61,26 @@ section{
 
 /* HEADER */
 nav {
-  font-size: var(--font-size-small);
-  font-family: var(--font-family-base);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-primary);
-  padding: 20px;
-  position:sticky;
-  top:0;
-  z-index: 1;
-  outline: 1px solid black;
-  img {
-    width: 20%;
-  }
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
+    font-size: var(--font-size-small);
+    font-family: var(--font-family-base);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* This means 100% of its parent, which is <header> */
+    width: 100%;
+    background-color: var(--color-primary);
+    padding: 20px;
+    position: sticky; /* This is the key property */
+    top: 0;          /* This sets where it sticks */
+    z-index: 1;
+    outline: 1px solid black; /* This border will also stick */
+    img {
+        width: 20%;
+    }
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 }
 
 .nav-list {
@@ -101,7 +105,7 @@ nav {
     text-align: center;
     width: 100%;
    h1{
-    font-size: 80px;
+    font-size: 70px;
    }
 }
 
@@ -127,6 +131,10 @@ nav {
     }
 }
 
+.btn-home{
+  background-color: #a9936e;
+}
+
 .home-body{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -136,6 +144,9 @@ nav {
   @media (max-width: 750px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+  }@media (max-width: 550px) {
+    grid-template-columns: 1fr;
+    
   }
 }
 
@@ -153,18 +164,160 @@ nav {
   border-radius: 15px; /* Optional: Add rounded corners to the image to match the container */
 }
 
+/* CONTATO */
+.contato-container {
+    text-align: center;
+    border-bottom: 30px solid var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Remove global image width from here if it applies to all images,
+       as we'll style icons/images specifically within cards */
+    /* img {
+        width: 40px;
+    } */
+    ul {
+        list-style: none;
+    }
+}
+
+.contato-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto auto; /* Two rows, height determined by content */
+    gap: 20px;
+    padding: 20px;
+    width: 90%; /* Keeping 90% width for the grid container */
+
+    & .contato-info-card:nth-child(3) {
+        grid-column: 1 / -1; /* Spans from the first column line to the last */
+        justify-self: center; /* Centers the item horizontally within its grid area */
+        width: calc(50% - 10px); /* Adjust width for desktop layout to appear centered */
+        margin-top: 0;
+    }
+
+    & .contato-info-card:nth-child(1),
+    & .contato-info-card:nth-child(2) {
+        width: 100%; /* Make them fill their grid cell */
+    }
+
+    @media (max-width: 1098px) {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        & .contato-info-card:nth-child(3) {
+            grid-column: auto; /* Reset column span */
+            justify-self: auto; /* Reset justification */
+            width: 100%; /* Full width on small screens */
+        }
+        & .contato-info-card:nth-child(1),
+        & .contato-info-card:nth-child(2) {
+            width: 100%;
+        }
+    }
+}
+
+.contato-info-card {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px; /* Added more padding inside the card */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
+    border-radius: var(--border-radius); /* Use your defined border-radius */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+
+    &:hover {
+        transform: translateY(-5px); /* Lift card slightly on hover */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    }
+
+    & ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 15px; /* Slightly reduced gap between list items */
+        width: 100%; /* Make ul take full width of card for better centering */
+
+        & li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align icon and text to start */
+            gap: 10px; /* Space between icon and text */
+            width: 85%; /* Make li wider for content */
+            background-color: var(--color-light); /* Lighter background for each list item */
+            border: 1px solid var(--color-secondary); /* Border color using your secondary color */
+            border-radius: 30px;
+            padding: 12px 20px; /* More padding inside each list item */
+            box-shadow: var(--box-shadow-sm); /* Subtle shadow for list items */
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+
+            &:hover {
+                background-color: lighten(var(--color-light), 5%); /* Slightly darker on hover (if using Sass) */
+                border-color: var(--color-accent); /* Change border on hover */
+            }
+
+            /* Styling for Font Awesome Icons */
+            & i {
+                font-size: 20px; /* Adjust icon size */
+                color: var(--color-secondary); /* Icon color */
+                background-color: transparent; /* Ensure icons don't have a background */
+                min-width: 20px; /* Prevent text from pushing icon */
+                text-align: center;
+            }
+            /* Styling for WhatsApp SVG Image */
+            & img {
+                width: 20px; /* Specific width for the SVG images */
+                height: 20px; /* Ensure height matches */
+                background-color: transparent;
+                min-width: 20px;
+                text-align: center;
+            }
+        }
+    }
+    & h3 {
+        padding: 20px;
+        color: var(--color-dark); /* Stronger color for headings */
+        font-size: var(--font-size-large);
+        margin-bottom: 10px; /* Space below heading */
+    }
+    & a {
+        text-decoration: none;
+        color: var(--color-secondary); /* Text color for links */
+        font-weight: 500; /* Slightly bolder text for readability */
+        flex-grow: 1; /* Allow link to take available space */
+        text-align: left; /* Align text to the left */
+        background-color: transparent;
+    }
+}
+
+/* Ensure the background of all elements within the section is primary, except specific overrides */
+#Contato{
+    background-color: var(--color-primary);
+    margin: none;
+}
+#Contato .contato-info-card ul li {
+    background-color: var(--color-light); /* Re-apply specific background */
+}
+#Contato .contato-info-card ul li i,
+#Contato .contato-info-card ul li img {
+    background-color: transparent; /* Icons/SVGs should not have background */
+}
+
 /* SOBRE */
 .sobre-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border: 3px solid black;
 }
 
 .sobre-img-container{
   img{
-    width: 50%;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -173,15 +326,16 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-secondary);
     color: wheat;
     width: 90%;
-    border: 3px solid red;
+    @media (max-width: 739px) {
+      flex-direction: column;
+      text-align: center;
+    }
 }
 
 .sobre-header{
   width: 100%;
-  border: 3px solid green;
 }
 
 .sobre-body{
@@ -189,13 +343,21 @@ nav {
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
-  border: 3px solid blue;
+  @media (max-width: 739px) {
+    align-items: center;
+  }
+}
+
+.sobre-body-text{
+  height: 100%;
+  padding: 20px;
 }
 
 .sobre-body-buttons{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  
 }
 
 /* PRODUTOS */
@@ -217,6 +379,7 @@ nav {
 .produtos-body{
   display: grid;
   gap: 20px;
+  width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   @media (max-width: 980px) {
@@ -231,11 +394,49 @@ nav {
 
 .produtos-img-container{
       height: 280px;
-    outline: 2px solid black;
     border-radius: 15px;
     img{
       border-radius: 15px;
       object-fit: cover;
       position: relative;
+      width: 100%;
+      height: 100%;
     }
+}
+
+#produtos {
+    margin-bottom: 0; /* Remove the bottom margin from the #produtos section */
+}
+
+/* FOOTER */
+footer {
+    padding: var(--spacing-xl) 0; /* Add vertical padding */
+    text-align: center;
+    color: var(--color-secondary); /* Light text color for contrast */
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md); /* Space between elements */
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container */
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-lg); /* Space between icons */
+    margin-bottom: var(--spacing-md);
+}
+
+.social-icons a {
+    color: var(--color-white); /* White color for icons */
+    font-size: var(--font-size-large); /* Larger icon size */
+    transition: color var(--transition-normal); /* Smooth hover effect */
+    background-color: transparent; /* Ensure icon background is transparent */
+}
+
+.social-icons a:hover {
+    color: var(--color-accent); /* Change color on hover */
 }
