@@ -65,6 +65,13 @@ html, body {
 section{
   margin-top: 80px;
   scroll-margin-top: 80px;
+  opacity: 0;
+    transform: translateY(20px); /* Start slightly below final position */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+section.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* HEADER */
