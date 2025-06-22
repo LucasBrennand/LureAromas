@@ -21,7 +21,7 @@ html, body {
   /* Color Palette */
   --color-primary: #e2edcf;
   --color-secondary: #6c757d;
-  --color-accent: #17a2b8;
+  --color-accent: #a9936e;
   --color-success: #28a745;
   --color-danger: #dc3545;
   --color-warning: #ffc107;
@@ -64,6 +64,7 @@ html, body {
 
 section{
   margin-top: 80px;
+  scroll-margin-top: 80px;
 }
 
 /* HEADER */
@@ -415,7 +416,6 @@ header {
     }
     & h3 {
         padding: 20px;
-        color: var(--color-dark); /* Stronger color for headings */
         font-size: var(--font-size-large);
         margin-bottom: 10px; /* Space below heading */
     }
@@ -459,13 +459,13 @@ header {
 
 .sobre-card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: wheat;
+    text-align: justify;
     width: 90%;
-    @media (max-width: 739px) {
-      flex-direction: column;
+    h3{
       text-align: center;
     }
 }
