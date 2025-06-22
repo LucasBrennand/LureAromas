@@ -285,7 +285,7 @@ header {
   justify-content: center;
   gap: 20px;
   width: 100%;
-  @media (max-width: 750px) {
+  @media (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }@media (max-width: 550px) {
