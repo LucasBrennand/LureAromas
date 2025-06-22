@@ -290,7 +290,7 @@ header {
   border-radius: 15px;
   position: relative; /* Ensure the container is ready for the image to fill it */
   width: 100%; /* Ensure the container takes the full width of its parent */
-  height: 250px; /* Ensure the container takes the full height you want */
+  height: 370px; /* Ensure the container takes the full height you want */
 }
 
 .home-img-container img {
@@ -529,7 +529,7 @@ header {
 }
 
 .produtos-img-container{
-      height: 280px;
+      height: 400px;
     border-radius: 15px;
     img{
       border-radius: 15px;
