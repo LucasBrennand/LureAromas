@@ -48,16 +48,16 @@
 
             const numbers = {
                 tamarineira: {
-                    shift1: '558196620788',
-                    shift2: '5581983060227'
+                    shift1: '558196620788', //Georgia
+                    shift2: '5581983060227' //Amanda FC
                 },
                 plaza: {
-                    shift1: '558194190965',
-                    shift2: '558198765702'
+                    shift1: '558194190965', //Renata
+                    shift2: '558198765702' // Adriana
                 },
                 riomar: {
-                    shift1: '558183229594',
-                    shift2: '558184299355'
+                    shift1: '558183229594', //Amanda Riomar
+                    shift2: '558184299355' // Marilia
                 }
             };
 
@@ -65,17 +65,17 @@
 
             if (whatsappLinks.length >= 4) {
                 const tamarineiraLink = whatsappLinks[1];
-                let tamarineiraNumber = (hour >= 6 && hour < 14) ? numbers.tamarineira.shift1 : numbers.tamarineira.shift2;
+                let tamarineiraNumber = (hour >= 6 && hour < 15) ? numbers.tamarineira.shift1 : numbers.tamarineira.shift2;
                 const tamarineiraMessage = 'Ol%C3%A1%21%20Eu%20gostaria%20de%20falar%20com%20uma%20atendente%20da%20L%27ure%20Aromas%20na%20unidade%20de%20Tamarineira%20(Ferreira%20Costa).';
                 tamarineiraLink.href = `https://wa.me/${tamarineiraNumber}?text=${tamarineiraMessage}`;
 
                 const plazaLink = whatsappLinks[2];
-                let plazaNumber = (hour >= 6 && hour < 14) ? numbers.plaza.shift1 : numbers.plaza.shift2;
+                let plazaNumber = (hour >= 6 && hour < 15) ? numbers.plaza.shift1 : numbers.plaza.shift2;
                 const plazaMessage = 'Ol%C3%A1%21%20Eu%20gostaria%20de%20falar%20com%20uma%20atendente%20da%20L%27ure%20Aromas%20na%20unidade%20do%20Plaza%20Shopping.';
                 plazaLink.href = `https://wa.me/${plazaNumber}?text=${plazaMessage}`;
 
                 const riomarLink = whatsappLinks[3];
-                let riomarNumber = (hour >= 6 && hour < 14) ? numbers.riomar.shift1 : numbers.riomar.shift2;
+                let riomarNumber = (hour >= 6 && hour < 15) ? numbers.riomar.shift1 : numbers.riomar.shift2;
                 const riomarMessage = 'Ol%C3%A1%21%20Eu%20gostaria%20de%20falar%20com%20uma%20atendente%20da%20L%27ure%20Aromas%20na%20unidade%20do%20Riomar%20Shopping.';
                 riomarLink.href = `https://wa.me/${riomarNumber}?text=${riomarMessage}`;
             }
@@ -84,7 +84,6 @@
         updateWhatsAppLinks();
         setInterval(updateWhatsAppLinks, 60 * 1000);
 
-        // --- NEW JAVASCRIPT FOR SECTION FADE-IN ON SCROLL ---
         const sections = document.querySelectorAll('section');
 
         const observerOptions = {
