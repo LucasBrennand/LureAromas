@@ -58,7 +58,8 @@
                 riomar: {
                     shift1: '558183229594', //Amanda Riomar
                     // shift2: '558184299355' // Marilia
-                    shift2: '558194190965' // Renata
+                    // shift2: '558194190965' // Renata
+                    shift2: '55817127458' //Marcela
                 }
             };
 
