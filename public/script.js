@@ -63,7 +63,7 @@
                 }
             };
 
-            const whatsappLinks = document.querySelectorAll('#Contato .contato-info-card:nth-child(2) ul li a');
+            const whatsappLinks = document.querySelectorAll('#Contato .contato-info-card ul li a');
 
             if (whatsappLinks.length >= 4) {
                 const tamarineiraLink = whatsappLinks[1];
